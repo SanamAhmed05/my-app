@@ -25,11 +25,12 @@ export default function ServicesSection() {
   return (
     <section className="py-16 text-center">
       <h2 className="text-3xl font-semibold mb-4">Caring is the new marketing</h2>
-      <p className="text-gray-600 max-w-xl mx-auto mb-12">
-        The Nexcent blog is the best place to read about the latest membership insights,
-        trends and more. See who's joining the community, read about how our community
-        are increasing their membership income and lot's more.
-      </p>
+     <p className="text-gray-600 max-w-xl mx-auto mb-12">
+  The Nexcent blog is the best place to read about the latest membership insights,
+  trends and more. See who is joining the community, read about how our community
+  are increasing their membership income and lot&#39;s more.
+</p>
+
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 px-6 md:px-16">
         {services.map((item, index) => (
