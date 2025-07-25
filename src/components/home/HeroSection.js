@@ -1,33 +1,74 @@
-import Image from 'next/image';
-import React from 'react';
+import Head from 'next/head';
 
-export default function HeroSection() {
+export default function Home() {
   return (
-    <section className="bg-gray-50 py-16 px-8 flex flex-col md:flex-row items-center justify-between">
-      {/* Left Side Text */}
-      <div className="md:w-1/2 mb-10 md:mb-0">
-        <h1 className="text-5xl font-bold text-gray-900">
-          Lessons and insights <br />
-          <span className="text-green-600">from 8 years</span>
+    <>
+      {/* Hero Section */}
+      <section className="text-center mt-12 px-4">
+        <h1 className="text-[32px] sm:text-[69px] text-center h-full font-normal w-full leading-snug sm:leading-tight">
+          Experience Modern <br />
+          <span className="font-bold">Luxury in Architecture</span>
         </h1>
-        <p className="text-gray-600 mt-4">
-          Where to grow your business as a photographer: site or social media?
+        <p className="mt-4 max-w-lg mx-auto text-black-400 text-sm sm:text-base">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed <br />
+          do eiusmod tempor incididunt ut labore et dolore.
         </p>
-        <button className="mt-6 px-6 py-3 bg-green-600 text-white rounded-md hover:bg-green-700">
-          Register
-        </button>
-      </div>
+        <div className="mt-6 flex flex-col sm:flex-row justify-center space-y-3 sm:space-y-0 sm:space-x-8">
+          <button className="bg-orange-500 text-white px-4 py-2 rounded">Lorem ipsum</button>
+          <button className="bg-white border px-4 py-2 rounded shadow-md">Lorem ipsum</button>
+        </div>
+      </section>
 
-      {/* Right Side Image */}
-      <div className="md:w-1/2">
-        <Image
-          src="/assets/hero.jpg"  // ✅ correct path
-          alt="Hero Image"
-          width={500}
-          height={400}
-          className="w-full h-auto"
-        />
-      </div>
-    </section>
+      {/* Clients / Logos Section */}
+      <section className="mt-15 sm:mt-[60px] px-4">
+        <p className="text-center text-gray-600 mb-4 text-sm sm:text-base">
+          Lorem ipsum dolor sit amet
+        </p>
+        <div className="flex flex-wrap sm:flex-nowrap max-w-full gap-4 sm:gap-30 px-2 sm:px-4 sm:-ml-14 container mx-auto relative h-full justify-center sm:justify-start">
+          {Array(7)
+            .fill(0)
+            .map((_, i) => (
+              <div key={i} className="text-base sm:text-xl font-bold">
+                AVARON
+              </div>
+            ))}
+        </div>
+      </section>
+
+      {/* Projects Section */}
+      <section className="mt-14 px-4">
+        <h2 className="text-2xl sm:text-3xl font-bold text-center mb-8">
+          Are Latest Projects
+        </h2>
+<div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-5">
+  {/* Left neighbor → تھوڑا نیچے */}
+  <div
+    className="bg-gray-800 h-48  mt-5 sm:h-48 rounded-2xl transform translate-y-3 rotate-[-8deg] origin-center shadow-xl"
+  ></div>
+
+  {/* Second neighbor → تھوڑا کم نیچے */}
+  <div
+    className="bg-gray-800 h-48  mt-5 sm:h-48 rounded-2xl transform translate-y-1 rotate-[-10deg] origin-center shadow-xl"
+  ></div>
+
+  {/* Middle box */}
+  <div className="bg-gray-800 h-60 sm:h-60 rounded-2xl shadow-xl"></div>
+
+  {/* Right neighbor → translate down */}
+  <div
+    className="bg-gray-800 h-48 mt-5 sm:h-48 rounded-2xl transform translate-y-1 rotate-[4deg] origin-center shadow-xl"
+  ></div>
+
+  {/* Rightmost neighbor → تھوڑا زیادہ نیچے */}
+  <div
+    className="bg-gray-800 h-48 mt-5 sm:h-48 rounded-2xl transform translate-y-3 rotate-[8deg] origin-center shadow-xl"
+  ></div>
+</div>
+
+
+
+
+      </section>
+    </>
   );
 }

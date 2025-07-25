@@ -1,32 +1,49 @@
+'use client';
 import Link from 'next/link';
+import { useState } from 'react';
 
 export default function Header() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
   return (
-    <header className="bg-gray-50 py-4 px-6 shadow-sm flex items-center justify-between">
-      {/* Logo */}
-      <div className="flex items-center space-x-2">
-        <div className="w-6 h-6 bg-green-500 rounded-sm flex items-center justify-center text-white font-bold">N</div>
-        <span className="font-bold text-lg text-gray-800">Nexcent</span>
-      </div>
+    <header className="mt-[53.58px]">
+      <div className="max-w-7xl mx-auto px-85 flex items-center justify-between relative">
 
-      {/* Navigation */}
-      <nav className="hidden md:flex space-x-20 text-gray-700 font-medium">
-        <Link href="/">Home</Link>
-        <Link href="/service">Service</Link>
-        <Link href="/feature">Feature</Link>
-        <Link href="/product">Product</Link>
-        <Link href="/testimonial">Testimonial</Link>
-        <Link href="/faq">FAQ</Link>
-      </nav>
+        {/* Logo */}
+        <div>
+          <span className="font-bold text-xl">AVARON</span>
+        </div>
 
-      {/* Auth Buttons */}
-      <div className="flex items-center space-x-4">
-        <Link href="/login" className="text-green-600 hover:text-green-700">Login</Link>
-        <Link href="/signup">
-          <button className="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-md">
-            Sign Up
+        {/* Navigation Links */}
+        {/* Add these 2 classes conditionally for mobile toggle */}
+        <nav
+          className={`flex space-x-6 md:space-x-6 ${
+            menuOpen ? 'block absolute top-full left-0 bg-white w-full px-4 py-4 shadow-md md:static md:bg-transparent md:shadow-none md:w-auto md:px-0 md:py-0' : 'hidden md:flex'
+          }`}
+          style={{ zIndex: 10 }}
+        >
+          <Link href="#"><span className="hover:text-blue-600 cursor-pointer block md:inline-block py-2 md:py-0">Process</span></Link>
+          <Link href="#"><span className="hover:text-blue-600 cursor-pointer block md:inline-block py-2 md:py-0">About Us</span></Link>
+          <Link href="#"><span className="hover:text-blue-600 cursor-pointer block md:inline-block py-2 md:py-0">Projects</span></Link>
+          <Link href="#"><span className="hover:text-blue-600 cursor-pointer block md:inline-block py-2 md:py-0">FAQs</span></Link>
+        </nav>
+
+        {/* Get Started Button */}
+        <Link href="#">
+          <button className="bg-orange-500 text-white px-4 py-1 rounded hover:bg-orange-600 transition hidden md:block">
+            Get Started
           </button>
         </Link>
+
+        {/* Hamburger Menu Button */}
+        <button
+          className="md:hidden text-3xl focus:outline-none"
+          onClick={() => setMenuOpen(!menuOpen)}
+          aria-label="Toggle menu"
+          type="button"
+        >
+          ☰
+        </button>
       </div>
     </header>
   );
