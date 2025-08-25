@@ -1,48 +1,63 @@
-// ✅ Your existing code with updated grid + width responsiveness only
-
-import { 
-  FaClipboardList, 
-  FaDraftingCompass, 
-  FaLayerGroup, 
-  FaCheckCircle 
-} from "react-icons/fa";
-
+// Updated WorkProcess component with custom SVG icons
 const steps = [
   {
     title: "Survey",
-    icon: <FaClipboardList className="text-orange-500 text-4xl mb-4 mt-5" />,
+    icon: (
+      <img 
+        src="/assets/Group.svg" 
+        alt="Survey Icon" 
+        className="w-12 h-12 mb-4 mt-5 mx-auto"
+      />
+    ),
     description: (
-  <>
-    Conduct a thorough analysis <br /> of the site and client requirements.
-  </>
-),
-
+      <>
+        Conduct a thorough analysis <br /> of the site and client requirements.
+      </>
+    ),
   },
   {
     title: "Design",
-    icon: <FaDraftingCompass className="text-orange-500 text-4xl mb-4 mt-5" />,
+    icon: (
+      <img 
+        src="/assets/Group (1).svg" 
+        alt="Design Icon" 
+        className="w-12 h-12 mb-4 mt-5 mx-auto"
+      />
+    ),
     description: (
       <>
-      Create detailed architectural <br />plans and 3D models.
+        Create detailed architectural <br />plans and 3D models.
       </>
     )
   },
   {
     title: "Construct",
-    icon: <FaLayerGroup className="text-orange-500 text-4xl mb-4 mt-5" />,
+    icon: (
+      <img 
+        src="/assets/Group (2).svg" 
+        alt="Construct Icon" 
+        className="w-12 h-12 mb-4 mt-5 mx-auto"
+      />
+    ),
     description:(
-     <>
-    Execute the construction process<br/> with precision and quality.
-    </>
+      <>
+        Execute the construction process<br/> with precision and quality.
+      </>
     )
   },
   {
     title: "Handover",
-    icon: <FaCheckCircle className="text-orange-500 text-4xl mb-4 mt-5" />,
+    icon: (
+      <img 
+        src="/assets/Group (3).svg" 
+        alt="Handover Icon" 
+        className="w-12 h-12 mb-4 mt-5 mx-auto"
+      />
+    ),
     description:(
-    <>
-    Deliver the completed project<br /> to the client.
-    </>
+      <>
+        Deliver the completed project<br /> to the client.
+      </>
     )
   },
 ];
@@ -55,7 +70,7 @@ export default function WorkProcess() {
         Crafting <span className="text-black">Architectural Excellence</span>
       </h3>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 gap-8 max-w-5xl mx-auto px-4">
+      <div className="grid grid-cols-1 pr-20 pl-20 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 gap-8 max-w-5xl mx-auto px-4">
         {steps.map((step, index) => (
           <div key={index} className="flex flex-col items-center text-center">
             {step.icon}

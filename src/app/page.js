@@ -2,6 +2,7 @@
 
 import Header from '@/components/header/Header';
  import Herosection from '@/components/home/HeroSection.js';
+   import Project from '@/components/project/Project.js';
 import Processwork from '@/components/process/Processwork';
 import Aboutus from '@/components/about/Aboutus.js';
    import Aboutus1 from '@/components/about/Aboutus1.js';
@@ -9,9 +10,10 @@ import Aboutus from '@/components/about/Aboutus.js';
    import Contact from '@/components/contact/Contact';
 export default function HomePage() {
   return (
-    <div>
+    <div className="bg-white"> {/*  white background add */}
       <Header />
       <Herosection />
+      <Project />
       <Processwork />
       <Aboutus />
       <Aboutus1 />
