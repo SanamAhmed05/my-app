@@ -1,6 +1,7 @@
 'use client';
 import React from 'react';
 import { FaStar } from 'react-icons/fa';
+import Marquee from 'react-fast-marquee';
 
 const testimonials = [
   {
@@ -25,19 +26,7 @@ const testimonials = [
   },
 ];
 
-// ✅ JavaScript-compatible function (no types)
-const getRotation = (index, middleIndex) => {
-  const diff = index - middleIndex;
-  if (diff === 0) return ' translate-x-[17%] scale-122';
-  if (diff === -2) return 'translate-x-[-30%] scale-90';
-  if (diff === -1) return 'translate-x-[-17%] scale-110';
-  if (diff === 1) return 'translate-x-[50%] scale-110';
-  return '';
-};
-
 export default function Testimonials() {
-  const middleIndex = Math.floor(testimonials.length / 2);
-
   return (
     <div className="max-w-7xl mx-auto px-4 py-16 text-center">
       <h2 className="text-3xl font-bold mb-2">What Clients Say!</h2>
@@ -45,17 +34,18 @@ export default function Testimonials() {
         Lorem ipsum dolor sit amet, consectetur adipiscing
       </p>
 
-      <div className="flex flex-wrap justify-center gap-4">
-        {testimonials.map((testimonial, index) => (
+      {/* ✅ React Fast Marquee for scrolling cards */}
+      <Marquee pauseOnHover={true} speed={60} gradient={false} className="gap-6">
+        {testimonials.map((testimonial) => (
           <div
             key={testimonial.id}
-            className={`bg-white sm:w-72 p-5 rounded-2xl shadow-[0px_10px_30px_rgba(0,0,0,10.5)] transition-transform transform ${getRotation(index, middleIndex)}`}
+            className="bg-white w-72 mx-3 p-5 rounded-2xl shadow-[0px_10px_30px_rgba(0,0,0,0.15)]"
           >
-            <div className="text-left max-w-full ">
+            <div className="text-left">
               <div className="text-orange-500 text-sm font-semibold mb-1">
                 ● Lorem ipsum
               </div>
-              <p className=" w-75  text-sm text-gray-900">{testimonial.text}</p>
+              <p className="text-sm text-gray-900">{testimonial.text}</p>
               <div className="mt-3 flex text-orange-500">
                 {Array.from({ length: testimonial.rating }).map((_, i) => (
                   <FaStar key={i} className="text-xs" />
@@ -64,8 +54,7 @@ export default function Testimonials() {
             </div>
           </div>
         ))}
-      </div>
+      </Marquee>
     </div>
   );
 }
- 

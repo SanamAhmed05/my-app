@@ -19,7 +19,7 @@ const ProjectCarousel = () => {
     dots: false,
     infinite: true,
     speed: 600,
-    slidesToShow: 5, // ek row me 5 dikhenge
+    slidesToShow: 5, // Desktop: ek row me 5
     slidesToScroll: 1,
     centerMode: true,
     centerPadding: "0px",
@@ -27,19 +27,25 @@ const ProjectCarousel = () => {
     autoplaySpeed: 2000,
     responsive: [
       {
-        breakpoint: 1024,
+        breakpoint: 1280, // lg
+        settings: {
+          slidesToShow: 4,
+        },
+      },
+      {
+        breakpoint: 1024, // md
         settings: {
           slidesToShow: 3,
         },
       },
       {
-        breakpoint: 768,
+        breakpoint: 768, // sm
         settings: {
           slidesToShow: 2,
         },
       },
       {
-        breakpoint: 480,
+        breakpoint: 480, // xs
         settings: {
           slidesToShow: 1,
         },
@@ -49,16 +55,20 @@ const ProjectCarousel = () => {
 
   return (
     <div className="py-10 bg-white text-center mt-4">
-      <h2 className="text-3xl font-bold mb-6">Are Latest Projects</h2>
-      <div className="px-10">
+      <h2 className="text-2xl md:text-3xl font-bold mb-6">
+        Our Latest Projects
+      </h2>
+
+      {/* ✅ Responsive padding */}
+      <div className="px-4 sm:px-6 md:px-10">
         <Slider {...settings}>
           {projects.map((img, index) => (
             <div key={index} className="px-2">
-              <div className="rounded-2xl bg-gray-800 h-64 flex items-center justify-center">
+              <div className="rounded-2xl overflow-hidden bg-black shadow-md">
                 <img
                   src={img}
                   alt={`Project ${index + 1}`}
-                  className="object-cover h-full w-full rounded-2xl"
+                  className="object-cover h-48 sm:h-56 md:h-64 w-full"
                 />
               </div>
             </div>
